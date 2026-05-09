@@ -133,9 +133,43 @@
 </head>
 
 <body>
-    <div class="container">
 
-    </div>
+<div class="container">
+
+   <!-- ★ FAIXA SUPERIOR -->
+   <div id="topMessage"></div>
+
+   <div class="screen" id="screen">
+       Carregando...
+       <button class="info-btn">
+           <div class="circle">$</div>
+       </button>
+   </div>
+
+   <div class="black-bar"></div>
+
+   <div class="keypad">
+       <div class="btn" onclick="press(1)">1</div>
+       <div class="btn" onclick="press(2)">2</div>
+       <div class="btn" onclick="press(3)">3</div>
+
+       <div class="btn" onclick="press(4)">4</div>
+       <div class="btn" onclick="press(5)">5</div>
+       <div class="btn" onclick="press(6)">6</div>
+
+       <div class="btn" onclick="press(7)">7</div>
+       <div class="btn" onclick="press(8)">8</div>
+       <div class="btn" onclick="press(9)">9</div>
+
+       <div class="btn clear-btn" onclick="clearInput()">C</div>
+       <div class="btn" onclick="press(0)">0</div>
+       <div class="btn reset-btn" onclick="novoDesafio()">⟲</div>
+
+       <div class="btn confirm-btn" onclick="confirmar()">Confirmar</div>
+   </div>
+
+</div>
+    
 </body>
     
 </html>
