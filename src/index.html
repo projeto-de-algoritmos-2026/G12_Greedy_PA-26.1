@@ -3,6 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <title>Coin Change Game</title>
+
+    <style>
+   body {
+       background: #2f333a;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100vh;
+       font-family: Arial;
+   }
+
+   .container {
+       width: 420px;
+       color: white;
+   }
+
+   #topMessage {
+       width: 100%;
+       text-align: center;
+       font-size: 26px;
+       font-weight: bold;
+       padding: 10px 0;
+       margin-bottom: 12px;
+       border-radius: 6px;
+       display: none;
+       color: black;
+   }
+
+   .screen {
+       background: #78eef5;
+       padding: 10px;
+       border-radius: 5px;
+       text-align: center;
+       color: black;
+       font-size: 22px;
+       font-weight: bold;
+       min-height: 90px;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       position: relative;
+   }
+
+   .info-btn {
+       position: absolute;
+       right: 10px;
+       top: 10px;
+       width: 50px;
+       height: 32px;
+       background: #2ecc71;
+       border-radius: 5px;
+       border: 2px solid #27ae60;
+       cursor: pointer;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       padding: 0;
+   }
+
+   .info-btn .circle {
+       width: 24px;
+       height: 24px;
+       border-radius: 50%;
+       background: #f7d75b;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-size: 18px;
+       color: #5a3d00;
+       font-weight: bold;
+   }
+
+   .info-btn:hover::after {
+       content: "100, 50, 25, 10, 5, 1";
+       position: absolute;
+       top: 38px;
+       right: 0;
+       background: #1b1b1b;
+       color: white;
+       padding: 6px 8px;
+       font-size: 13px;
+       border-radius: 6px;
+       border: 1px solid #555;
+       white-space: nowrap;
+       z-index: 10;
+   }
+
+   .black-bar {
+       margin: 15px 0;
+       height: 26px;
+       background: black;
+       border-radius: 4px;
+   }
+
+   .keypad {
+       display: grid;
+       grid-template-columns: repeat(3, 1fr);
+       gap: 12px;
+       margin-top: 15px;
+   }
+
+   .btn {
+       background: #c8d2dc;
+       text-align: center;
+       padding: 15px 0;
+       font-size: 22px;
+       border-radius: 10px;
+       cursor: pointer;
+       color: black;
+       font-weight: bold;
+       user-select: none;
+   }
+
+   .btn:hover { opacity: 0.8; }
+
+   .clear-btn { background: #e74c3c; color: white; }
+   .reset-btn { background: #f4a007; color: black; font-size: 25px; }
+   .confirm-btn {
+       grid-column: span 3;
+       background: #32d957;
+       color: black;
+       font-size: 24px;
+       padding: 18px 0;
+       border-radius: 12px;
+   }
+</style>
+    
 </head>
 
 <body>
@@ -10,4 +137,5 @@
 
     </div>
 </body>
+    
 </html>
