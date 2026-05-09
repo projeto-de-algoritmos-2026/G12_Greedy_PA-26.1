@@ -8,13 +8,14 @@
 body {
     background: #2f333a;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column; /* <-- título no topo */
     align-items: center;
     height: 100vh;
     font-family: Arial;
     margin: 0;
 }
 
+/* TÍTULO */
 .titulo-principal {
     text-align: center;
     color: #f1c40f;
@@ -26,6 +27,7 @@ body {
     font-weight: bold;
 }
 
+/* REDUZ TUDO EM 80% */
 .game-wrapper {
     transform: scale(0.8);
     transform-origin: top center;
@@ -294,6 +296,7 @@ body {
 
 <div class="game-wrapper">
 
+    <!-- Caixa registradora -->
     <div class="cash-register">
         <div class="register-title">Cédulas disponíveis</div>
 
@@ -336,6 +339,7 @@ body {
         </div>
     </div>
 
+    <!-- Parte principal -->
     <div class="container">
         <div class="teclado-wrapper">
         <div class="instrucao-topo">Quantas cédulas são necessárias para esse troco?</div>
@@ -374,6 +378,7 @@ let resposta = "";
 let valorDesafio = 0;
 let bloqueado = false;
 
+const cedulas = [100, 50, 25, 10, 5, 1];
 let dinheiroAcumulado = [];
 
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -389,7 +394,6 @@ function playBeep(f, d, t) {
     o.connect(g); g.connect(audioCtx.destination);
     o.start(); o.stop(audioCtx.currentTime + d);
 }
-        bloqueado = false;
 
 function novoDesafio() {
     bloqueado = false;
@@ -452,24 +456,31 @@ function atualizarPainelAcumulado() {
     label.innerText = `${dinheiroAcumulado.length} un`;
 }
 
-async function confirmar() {
+function minimoCedulas(v) {
+    let usadas = [];
+    for (let c of cedulas) {
+        let q = Math.floor(v / c);
+        while (q--) usadas.push(c);
+        v %= c;
+    }
+    return usadas;
+}
+
+function confirmar() {
     if (resposta === "") return;
 
+    bloqueado = true;
 
-    const response = await fetch(`/troco/${valorDesafio}`);
-    
-    const dados = await response.json();
-    
-    const correto = dados.quantidade; 
-    const usadas = dados.usadas;       
+    const usadas = minimoCedulas(valorDesafio);
+    const correto = usadas.length;
 
     let top = document.getElementById("topMessage");
 
     document.getElementById("screen").innerHTML =
         `Valor: R$ ${valorDesafio}<br>
-            Resposta correta: ${correto}<br>
-            Usadas: ${usadas.join(", ")}
-            `;
+         Resposta correta: ${correto}<br>
+         Usadas: ${usadas.join(", ")}
+         `;
 
     if (parseInt(resposta) === correto) {
         playBeep(523, 0.1, 'sine');
@@ -485,10 +496,14 @@ async function confirmar() {
         top.style.color = "white";
         top.innerHTML = "YOU LOSS!";
     }
-} 
+}
 
 novoDesafio();
 </script>
 
 </body>
 </html>
+
+
+
+
