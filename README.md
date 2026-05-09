@@ -19,13 +19,62 @@ Caso a resposta esteja correta, o sistema exibe uma mensagem de vitória. Se est
 
 ## Screenshots
 
-## Instalação 
-**Linguagem**: HTML<br>
+### Tela Inicial
 
-## Uso
+![Tela Inicial](Assets/tela_inicial.png)
 
-### Compilação e Execução
+### Tela de Vitória
+
+![Tela de Vitória](Assets/tela_win.png)
+
+### Tela de Derrota
+
+![Tela de Derrota](Assets/tela_loss.png)
+
+## Instalação
+
+**Linguagem**: HTML + CSS + JavaScript<br>
+
+## Uso  
+
+Para executar o projeto, basta abrir o arquivo principal `index.html` em qualquer navegador moderno (Chrome, Firefox, Edge, etc).
+
+Não é necessário compilação ou instalação de dependências.
+
+### Execução
+
+- Abra o arquivo `index.html`
+- O jogo será carregado automaticamente no navegador
+
+### Funcionamento  
+
+Ao iniciar o jogo, será exibida uma interface interativa chamada **Coin Change Game**, onde o objetivo é calcular o número mínimo de cédulas necessárias para formar um valor aleatório.
+
+O jogador deve:
+
+- Observar o valor exibido na tela
+- Inserir no teclado numérico a quantidade de cédulas necessárias
+- Confirmar a resposta
+
+Também é possível:
+
+- Selecionar cédulas disponíveis no caixa (100, 50, 25, 10, 5, 1)
+- Visualizar as cédulas acumuladas
+- Limpar as cédulas selecionadas
+- Reiniciar o desafio
+
+### Regras do Jogo
+
+- O sistema gera automaticamente um valor aleatório entre 50 e 500
+- O objetivo é usar o menor número possível de cédulas (algoritmo ambicioso)
+- O sistema valida automaticamente a resposta do jogador
+
+### Feedback do Sistema
+
+- “YOU WIN!” → exibido quando a resposta está correta, indicando o valor correto e as cédulas mínimas utilizadas
+- “YOU LOSS!” → exibido quando a resposta está incorreta, mostrando a resposta correta e as cédulas mínimas utilizadas
+- Sons são reproduzidos para interação e feedback
 
 ## Gravação 
 
-A gravação pode ser acessada através do link []().
+A gravação pode ser acessada através do link [https://youtu.be/U3OnuC_pNEE](https://youtu.be/U3OnuC_pNEE).
