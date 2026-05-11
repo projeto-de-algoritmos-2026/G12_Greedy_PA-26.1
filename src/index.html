@@ -444,7 +444,7 @@ function atualizarPainelAcumulado() {
     painel.innerHTML = "";
     dinheiroAcumulado.forEach(valor => {
         const d = document.createElement("div");
-        d.className = valor <= 5 ? `mini-money mini-circle m-${valor}`
+        d.className = valor <= 1 ? `mini-money mini-circle m-${valor}`
                                  : `mini-money mini-rect m-${valor}`;
         d.innerText = valor;
         painel.appendChild(d);
